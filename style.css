@@ -9,23 +9,8 @@
       display: block;
     }
   
-    #main_image {
-      display: flex;
-      position: relative;
-      padding: 0%;
-      width: 899px;
-      height: 1024px;
-      background-color: #ffffff;
-    }
-  
-    #main_image .img {
-      position: absolute;
-      width: 899px;
-      height: 1024px;
-      top: 0;
-      left: 0;
-      object-fit: cover;
-    }
+
+    
   
     h1, h2, h3 {
       font-family: "Patrick Hand";
@@ -53,37 +38,16 @@
   
   /* Desktop-Modus */
   @media (min-width: 769px) {
-    .desktop {
-      display: flex;
-      justify-content: flex-end; /* Inhalte rechtsbündig */
-      align-items: flex-start;
-      flex-wrap: wrap;
-      gap: 16px; /* Abstand zwischen den Elementen */
-      padding: 20px;
-    }
   
-    .iphone {
-      display: none;
-    }
-  
-    .main_image {
+    #main_image {
         display: flex;
         position: relative;
-        padding: 0%;
-        width: 899px;
-        height: 1024px;
+        padding: 0;
+        max-height: auto    ;
         background-color: #ffffff;
       }
-    
-      .main_image .img {
-        position: absolute;
-        width: 899px;
-        height: 1024px;
-        top: 0;
-        left: 0;
-        object-fit: cover;
-      }
-  
+
+      
     h1, h2, h3 {
       color: #000;
       font-family: "Patrick Hand";
