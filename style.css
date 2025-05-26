@@ -1,5 +1,25 @@
 
 
+h1, h2, h3 {
+    color: #000;
+    font-family: "Patrick Hand";
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+
+  h1 {
+    font-size: 64px;
+  }
+
+  h2 {
+    font-size: 50px;
+  }
+
+  h3 {
+    font-size: 40px;
+  }
+
 html, body {
     margin: 0;
     padding: 0;
@@ -7,7 +27,7 @@ html, body {
     font-family: "Patrick Hand", sans-serif;
     background-color: #000;
   }
-  
+
   .uv-app {
     display: flex;
     min-height: 100vh;
@@ -43,27 +63,13 @@ html, body {
   }
   
   .city-switch {
-    font-size: 28px;
-    margin-bottom: 10px;
+    font-size: 50px;
   }
   
-  .city-switch span {
-    margin: 0 10px;
-  }
   
   .dots {
     font-size: 20px;
     margin-bottom: 20px;
-  }
-  
-  h2 {
-    font-size: 28px;
-    margin: 10px 0;
-  }
-  
-  h3 {
-    font-size: 24px;
-    margin: 10px 0;
   }
   
   .card-column {
@@ -112,6 +118,29 @@ html, body {
     .uv-app {
       flex-direction: column;
     }
+
+    h1, h2, h3 {
+        font-family: "Patrick Hand";
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+      }
+    
+      h1 {
+        color: #FFF;
+        font-size: 40px;
+      }
+    
+      h2 {
+        color: #000;
+        font-size: 24px;
+      }
+    
+      h3 {
+        color: #000;
+        font-size: 16px;
+      }
+  
   
     .left {
       width: 100%;
@@ -128,10 +157,7 @@ html, body {
       width: 100%;
       padding: 20px;
     }
-  
-    .right h2 {
-      font-size: 22px;
-    }
+
   
     .now-forecast {
       flex-direction: row;

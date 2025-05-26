@@ -25,9 +25,9 @@ function showData() {
 
   // Jetzt
   nowContainer.innerHTML = `
-    <p>Jetzt</p>
+    <h2>Jetzt</h2>
     <img src="/img/desktop/anzeigen_sonne_desktop/${imageNumber}.svg" alt="UV jetzt">
-    <p>${uviNow}</p>
+    <h2>${uviNow}</h2>
   `;
 
   // Prognose
@@ -39,9 +39,9 @@ function showData() {
     const card = document.createElement("div");
     card.classList.add("card-column");
     card.innerHTML = `
-      <p>${forecast.time}</p>
+      <h2>${forecast.time}</h2>
       <img src="/img/mobile/anzeigen_sonne_mobile/${forecastNumber}.svg" alt="UV ${forecast.time}">
-      <p>${forecast.uvi}</p>
+      <h2>${forecast.uvi}</h2>
     `;
     forecastContainer.appendChild(card);
   }
