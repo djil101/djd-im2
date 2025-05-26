@@ -1,18 +1,17 @@
-
-
 .iphone {
+  display: none;
+}
+
+/* Bei kleiner Bildschirmbreite: Mobile anzeigen, Desktop ausblenden */
+@media (max-width: 768px) {
+  .desktop {
     display: none;
   }
-  
-  /* Bei kleiner Bildschirmbreite: Mobile anzeigen, Desktop ausblenden */
-  @media (max-width: 768px) {
-    .desktop {
-      display: none;
-    }
-    .iphone {
-      display: block;
-    }
+  .iphone {
+    display: block;
   }
+}
+
 /*desktop text*/
 @media (max-width: 2100px) {
     h1, h2, h3 {
