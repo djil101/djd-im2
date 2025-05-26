@@ -1,71 +1,96 @@
-
-/* Standard: Mobile anzeigen, Desktop ausblenden */
-@media (max-width: 768px) {
-    .desktop {
-      display: none;
-    }
-  
-    .iphone {
-      display: block;
-    }
-  
-
-    
-  
-    h1, h2, h3 {
-      font-family: "Patrick Hand";
-      font-style: normal;
-      font-weight: 400;
-      line-height: normal;
-    }
-  
-    h1 {
-      color: #FFF;
-      font-size: 40px;
-    }
-  
-    h2 {
-      color: #000;
-      font-size: 24px;
-    }
-  
-    h3 {
-      color: #000;
-      font-size: 16px;
-    }
+body {
+    margin: 0;
+    font-family: "Patrick Hand", sans-serif;
+    background-color: #000;
   }
   
+  .uv-app {
+    display: flex;
+    min-height: 100vh;
+  }
   
-  /* Desktop-Modus */
-  @media (min-width: 769px) {
+  .left {
+    flex: 1;
+    background-color: #6d0000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   
-    #main_image {
-        display: flex;
-        position: relative;
-        padding: 0;
-        max-height: auto    ;
-        background-color: #ffffff;
-      }
-
-      
-    h1, h2, h3 {
-      color: #000;
-      font-family: "Patrick Hand";
-      font-style: normal;
-      font-weight: 400;
-      line-height: normal;
+  .left img {
+    max-width: 80%;
+    height: auto;
+  }
+  
+  .right {
+    flex: 1;
+    background-color: #fff;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .city-switch {
+    font-size: 28px;
+    margin-bottom: 10px;
+  }
+  
+  .city-switch span {
+    margin: 0 10px;
+  }
+  
+  .dots {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+  
+  h2 {
+    font-size: 28px;
+    margin: 10px 0;
+  }
+  
+  h3 {
+    font-size: 24px;
+    margin: 10px 0;
+  }
+  
+  .card {
+    margin: 10px;
+  }
+  
+  .forecast {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+  
+  .scale {
+    margin-top: auto;
+    padding-top: 20px;
+  }
+  
+  .scale img {
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  /* Responsiv */
+  @media (max-width: 768px) {
+    .uv-app {
+      flex-direction: column;
     }
   
-    h1 {
-      font-size: 64px;
+    .left,
+    .right {
+      width: 100%;
     }
   
-    h2 {
-      font-size: 50px;
-    }
-  
-    h3 {
-      font-size: 40px;
+    .forecast {
+      flex-direction: row;
+      flex-wrap: wrap;
     }
   }
   
