@@ -1,4 +1,5 @@
 const container = document.querySelector("#uvindex");
+const main_image = document.querySelector("#main_image img");
 
 const API_URL = "https://currentuvindex.com/api/v1/uvi?latitude=40.6943&longitude=-73.9249";
 
@@ -14,21 +15,27 @@ async function fetchData(url) {
 const myData = await fetchData(API_URL);
 
 function showData() {
+    let imageNumber = Math.ceil((myData.now.uvi / 2));
+    console.log(imageNumber);
     // show momenta data
     let card = document.createElement("article");
     card.classList.add("card")
     card.innerHTML = `<h2>${myData.now.time}</h2>
+    <img src="/img/desktop/anzeigen_sonne_desktop/${imageNumber}.svg">
             <p>${myData.now.uvi}</p>`
         ;
     container.appendChild(card);
 
+    main_image.src = `/img/desktop/gross/${imageNumber}.svg`;
 
 
 
     for (let i = 0; i <= 3; i++) {
+        let forecastImageNumber = Math.ceil((myData.forecast[i].uvi / 2));
         let card = document.createElement("article");
         card.classList.add("card")
         card.innerHTML = `<h2>${myData.forecast[i].time}</h2>
+        <img src="/img/mobile/anzeigen_sonne_mobile/${forecastImageNumber}.svg">
             <p>${myData.forecast[i].uvi}</p>`
             ;
         container.appendChild(card);

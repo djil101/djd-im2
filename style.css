@@ -10,7 +10,27 @@
   .iphone {
     display: block;
   }
+<<<<<<< Updated upstream
 }
+=======
+
+  .main_image {
+    display: flex;
+    position: relative;
+    width: 899px;
+    height: 1024px;
+    background-color: #ffffff;
+  }
+  
+  .main_image .img {
+    position: absolute;
+    width: 899px;
+    height: 1024px;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+  }
+>>>>>>> Stashed changes
 
 /*desktop text*/
 @media (max-width: 2100px) {
@@ -59,4 +79,5 @@
       font-size: 16px;
     }
   }
+
   
