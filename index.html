@@ -1,16 +1,60 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv = "X-UA-Compatible" content="ie=edge"> 
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <title>Document UV-Index</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="stylesheet" type="text/css" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+  <title>Document UV-Index</title>
 </head>
 <body>
-    <main>
-        <h1>UV-Index</h1>    
-    <div id = "uvindex"> </div></main>
-    <script src="script.js" type="module"></script>
+  <main>
+    <h1>UV-Index</h1>
+    <div id="uvindex">
+      <div class="desktop">
+        <div class="div">
+          <h1>Jetzt</h1>
+          <h2>10 Uhr</h2>
+          <h2>10 Uhr</h2>
+          <h2>10 Uhr</h2>
+          <h3>Heutiger UV-Index:</h3>
+
+          <!-- DesktopCom-Komponente Platzhalter -->
+          <div class="desktop-com-instance">[DesktopCom Komponente]</div>
+
+          <div class="name-desktop">
+            <div class="overlap-group">
+              <h2>Zürich</h2>
+              <h2>Zürich</h2>
+              <p class="p">
+                <span class="span">.</span>
+                <span class="text-wrapper-8"> . .</span>
+              </p>
+            </div>
+            <h3>&lt;</h3>
+            <h3>&gt;</h3>
+          </div>
+
+          <div class="balke-desktop">
+            <img class="img" src="OK-sonne-IM-10.png" alt="Ok sonne IM" />
+            <img class="OK-sonne-IM-2" src="OK-sonne-IM-11.png" alt="Ok sonne IM" />
+            <img class="OK-sonne-IM-3" src="OK-sonne-IM-12.png" alt="Ok sonne IM" />
+            <img class="OK-sonne-IM-4" src="OK-sonne-IM-13.png" alt="Ok sonne IM" />
+            <img class="OK-sonne-IM-5" src="OK-sonne-IM-14.png" alt="Ok sonne IM" />
+          </div>
+
+          <img class="polygon" src="polygon-2.svg" alt="Polygon" />
+
+          <!-- SunneDesktop-Komponenten Platzhalter -->
+          <div class="sunne-desktop-instance">[SunneDesktop 1]</div>
+          <div class="sunne-desktop-2">[SunneDesktop 2]</div>
+          <div class="sunne-desktop-4">[SunneDesktop 3]</div>
+          <div class="sunne-desktop-6">[SunneDesktop 4]</div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <script src="script.js" type="module"></script>
 </body>
 </html>
