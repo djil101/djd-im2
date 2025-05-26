@@ -10,11 +10,9 @@
   .iphone {
     display: block;
   }
-<<<<<<< Updated upstream
 }
-=======
-
-  .main_image {
+  
+.main_image {
     display: flex;
     position: relative;
     width: 899px;
@@ -30,7 +28,6 @@
     left: 0;
     object-fit: cover;
   }
->>>>>>> Stashed changes
 
 /*desktop text*/
 @media (max-width: 2100px) {
