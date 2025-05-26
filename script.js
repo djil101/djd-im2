@@ -1,5 +1,7 @@
 const container = document.querySelector("#uvindex");
 const main_image = document.querySelector("#main_image img");
+const nowContainer = document.querySelector("#uv-now");
+const forecastContainer = document.querySelector("#uv-forecast");
 
 const API_URL = "https://currentuvindex.com/api/v1/uvi?latitude=40.6943&longitude=-73.9249";
 
@@ -24,7 +26,7 @@ function showData() {
     <img src="/img/desktop/anzeigen_sonne_desktop/${imageNumber}.svg">
             <p>${myData.now.uvi}</p>`
         ;
-    container.appendChild(card);
+        nowContainer.appendChild(card); 
 
     main_image.src = `/img/desktop/gross/${imageNumber}.svg`;
 
@@ -38,7 +40,8 @@ function showData() {
         <img src="/img/mobile/anzeigen_sonne_mobile/${forecastImageNumber}.svg">
             <p>${myData.forecast[i].uvi}</p>`
             ;
-        container.appendChild(card);
+        forecastContainer.appendChild(card);
+        
     }
 
     // myData.forecast.forEach((element) => {

@@ -1,59 +1,32 @@
-.iphone {
-  display: none;
-}
 
-/* Bei kleiner Bildschirmbreite: Mobile anzeigen, Desktop ausblenden */
+/* Standard: Mobile anzeigen, Desktop ausblenden */
 @media (max-width: 768px) {
-  .desktop {
-    display: none;
-  }
-  .iphone {
-    display: block;
-  }
-}
-  
-.main_image {
-    display: flex;
-    position: relative;
-    width: 899px;
-    height: 1024px;
-    background-color: #ffffff;
-  }
-  
-  .main_image .img {
-    position: absolute;
-    width: 899px;
-    height: 1024px;
-    top: 0;
-    left: 0;
-    object-fit: cover;
-  }
-
-/*desktop text*/
-@media (max-width: 2100px) {
-    h1, h2, h3 {
-      color: #000;
-      font-family: "Patrick Hand";
-      font-style: normal;
-      font-weight: 400;
-      line-height: normal;
+    .desktop {
+      display: none;
     }
   
-    h1 {
-      font-size: 64px;
+    .iphone {
+      display: block;
     }
   
-    h2 {
-      font-size: 50px;
+    #main_image {
+      display: flex;
+      position: relative;
+      padding: 0%;
+      width: 899px;
+      height: 1024px;
+      background-color: #ffffff;
     }
   
-    h3 {
-      font-size: 40px;
+    #main_image .img {
+      position: absolute;
+      width: 899px;
+      height: 1024px;
+      top: 0;
+      left: 0;
+      object-fit: cover;
     }
-  }  
-
-/*mobile text*/
-@media (max-width: 768px) {
+  
     h1, h2, h3 {
       font-family: "Patrick Hand";
       font-style: normal;
@@ -76,5 +49,59 @@
       font-size: 16px;
     }
   }
-
+  
+  
+  /* Desktop-Modus */
+  @media (min-width: 769px) {
+    .desktop {
+      display: flex;
+      justify-content: flex-end; /* Inhalte rechtsbündig */
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 16px; /* Abstand zwischen den Elementen */
+      padding: 20px;
+    }
+  
+    .iphone {
+      display: none;
+    }
+  
+    .main_image {
+        display: flex;
+        position: relative;
+        padding: 0%;
+        width: 899px;
+        height: 1024px;
+        background-color: #ffffff;
+      }
+    
+      .main_image .img {
+        position: absolute;
+        width: 899px;
+        height: 1024px;
+        top: 0;
+        left: 0;
+        object-fit: cover;
+      }
+  
+    h1, h2, h3 {
+      color: #000;
+      font-family: "Patrick Hand";
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+  
+    h1 {
+      font-size: 64px;
+    }
+  
+    h2 {
+      font-size: 50px;
+    }
+  
+    h3 {
+      font-size: 40px;
+    }
+  }
   
