@@ -36,10 +36,12 @@ function showData() {
   arrow.style.left = `${percent}%`;
 
   nowContainer.innerHTML = `
+  <div class="card-column">
     <h1>Jetzt</h1>
-    <img src="/img/desktop/anzeigen_sonne_desktop/${imageNumber}.svg" alt="UV jetzt">
+    <img src="/img/desktop/anzeigen_sonne_desktop/${imageNumber}.svg" alt="UV jetzt" class="uv-icon">
     <h1>${uviNow}</h1>
-  `;
+  </div>
+`;
 
   forecastContainer.innerHTML = "";
   for (let i = 0; i < 3; i++) {
@@ -51,7 +53,7 @@ function showData() {
     card.classList.add("card-column");
     card.innerHTML = `
       <h2>${formattedTime}</h2>
-      <img src="/img/mobile/anzeigen_sonne_mobile/${forecastNumber}.svg" alt="UV ${formattedTime}"style="height: 50px;">
+     <img src="/img/mobile/anzeigen_sonne_mobile/${forecastNumber}.svg" alt="UV ${formattedTime}" style="height: 50px;">
       <h2>${forecast.uvi}</h2>
     `;
     forecastContainer.appendChild(card);

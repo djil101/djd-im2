@@ -1,5 +1,5 @@
 
-@media (min-width: 481px){
+@media (min-width: 769px){
 h1, h2, h3 {
     color: #000;
     font-family: "Patrick Hand";
@@ -106,7 +106,7 @@ html, body {
 }
   
   /* 🔽 MOBIL-DARSTELLUNG */
-  @media (max-width: 480px) {
+  @media (max-width: 768px) {
     .uv-app {
       flex-direction: column;
     }
@@ -147,9 +147,70 @@ html, body {
     }
   
     .right {
-      width: 100%;
-      padding: 20px;
-    }
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        background-color: white;
+      }
+      
+      .city-switch {
+        font-size: 24px;
+        color: black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 16px;
+        margin-top: 10px;
+        margin-bottom: 5px;
+      }
+      
+      .dots {
+        font-size: 18px;
+        margin-bottom: 10px;
+      }
+      .card-column {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 8px;
+      }
+      
+      .card-column img,
+      .uv-icon {
+        width: 50px;
+        height: auto;
+      }
+      
+      
+      .forecast {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top: 10px;
+      }
+      
+      .scale {
+        margin-top: 15px;
+        position: relative;
+        width: 100%;
+        max-width: 300px;
+      }
+      
+      .scale img {
+        width: 100%;
+        height: auto;
+      }
+      
+      .arrow {
+        position: absolute;
+        bottom: -16px;
+        font-size: 18px;
+        color: black;
+        transition: left 0.3s ease;
+      }
+      
 
   
     .now-forecast {
@@ -164,7 +225,9 @@ html, body {
     }
   
     .arrow {
-      left: 90%;
-    }
+        transform: translateX(-50%);
+      }
+
+    
   }
   
