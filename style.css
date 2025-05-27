@@ -3,6 +3,9 @@
     .city-switch#desktop-only {
     display: block;
 }
+    .city-switch#mobile-only {
+    display: none;
+}
 
 h1, h2, h3 {
     color: #000;
@@ -114,7 +117,12 @@ html, body {
   
   /* 🔽 MOBIL-DARSTELLUNG */
   @media (max-width: 768px) {
-    
+    .city-switch#desktop-only {
+        display: none;
+    }
+    .city-switch#mobile-only {
+        display: flex;
+    }
     .uv-app {
       flex-direction: column;
     }
