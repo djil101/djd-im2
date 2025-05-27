@@ -116,21 +116,22 @@ html, body {
         font-style: normal;
         font-weight: 400;
         line-height: normal;
+        margin: 5px;
       }
     
       h1 {
-        color: #FFF;
-        font-size: 40px;
+        color: black;
+        font-size: 30px;
       }
     
       h2 {
         color: #000;
-        font-size: 24px;
+        font-size: 20px;
       }
     
       h3 {
         color: #000;
-        font-size: 16px;
+        font-size: 26px;
       }
   
   
@@ -156,9 +157,10 @@ html, body {
       
       .city-switch {
         font-size: 24px;
+        font-family: "Patrick Hand";
         color: black;
         display: flex;
-        justify-content: center;
+        justify-content:center;
         align-items: center;
         gap: 16px;
         margin-top: 10px;
