@@ -10,27 +10,30 @@
 <body>
   <main class="uv-app">
     <div class="left">
-      <!-- Stadtwahl für Mobile -->
+      <!-- Stadtwahl Mobile -->
       <div class="city-switch mobile-only">
         <span>&lt;</span>
-        <span>Zürich</span> <!-- Wird von JS überschrieben -->
+        <span>Zürich</span>
         <span>&gt;</span>
       </div>
 
       <!-- Hauptbild -->
-      <img id="main_image" src="img/desktop/gross/1.svg" alt="UV-Symbol" />
+      <img id="main_image" src="img/mobile/gross/1.svg" alt="UV-Symbol" />
 
-      <!-- Punkte (Dots) -->
-      <img class="dots" src="img/desktop/drei_punkte_desktop.svg" alt="Navigationspunkte" />
+      <!-- Mobile Dots -->
+      <img class="dots mobile-only" src="img/mobile/punkte_zürich_mobile.svg" alt="Navigationspunkte" />
     </div>
 
     <div class="right">
-      <!-- Stadtwahl für Desktop -->
+      <!-- Stadtwahl Desktop -->
       <div class="city-switch desktop-only">
         <span>&lt;</span>
-        <span>Zürich</span> <!-- Wird von JS überschrieben -->
+        <span>Zürich</span>
         <span>&gt;</span>
       </div>
+
+      <!-- Desktop Dots -->
+      <img class="dots desktop-only" src="img/desktop/punkte_zürich_desktop.svg" alt="Navigationspunkte" />
 
       <h3>Heutiger UV-Index:</h3>
       <div class="now-forecast">

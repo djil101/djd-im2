@@ -2,30 +2,28 @@ const main_image = document.querySelector("#main_image");
 const nowContainer = document.querySelector("#uv-now");
 const forecastContainer = document.querySelector("#uv-forecast");
 const arrow = document.querySelector("#uv-arrow");
+const dotsMobile = document.querySelector(".dots.mobile-only");
+const dotsDesktop = document.querySelector(".dots.desktop-only");
 
-// Verfügbare Städte mit Koordinaten
 const cities = [
   { name: "Zürich", lat: 47.3769, lon: 8.5417 },
-  { name: "Bern", lat: 46.9481, lon: 7.4474 },
-  { name: "Chur", lat: 46.8508, lon: 9.5310 } // ✅ ersetzt Genf
+  { name: "Chur", lat: 46.8508, lon: 9.5310 },
+  { name: "Bern", lat: 46.9481, lon: 7.4474 }
 ];
 
 let currentCityIndex = 0;
 let myData = null;
 
-// Uhrzeit umformatieren (z. B. "14 Uhr")
 function formatTime(isoString) {
   const date = new Date(isoString);
   const hours = date.getHours();
   return `${hours} Uhr`;
 }
 
-// API-Link je nach Stadt
 function buildApiUrl(city) {
   return `https://currentuvindex.com/api/v1/uvi?latitude=${city.lat}&longitude=${city.lon}`;
 }
 
-// Daten holen
 async function fetchData(url) {
   try {
     const response = await fetch(url);
@@ -36,44 +34,49 @@ async function fetchData(url) {
   }
 }
 
-// Stadtname im UI updaten
 function updateCityName(name) {
   document.querySelectorAll(".city-switch span:nth-child(2)").forEach(span => {
-    span.textContent = name;
+    span.classList.add("fade");
+    setTimeout(() => {
+      span.textContent = name;
+      span.classList.remove("fade");
+    }, 200);
   });
 }
 
-// UV-Daten anzeigen
 function showData() {
-    
   if (!myData || !myData.now) return;
 
+  // Fading
+  main_image.style.opacity = 0;
+  nowContainer.style.opacity = 0;
+  forecastContainer.style.opacity = 0;
+  arrow.style.opacity = 0;
+  dotsMobile.style.opacity = 0;
+  dotsDesktop.style.opacity = 0;
+
+  const isMobile = window.innerWidth <= 768;
   const uviNow = myData.now.uvi;
   const imageNumber = Math.ceil(uviNow / 2);
-  const isMobile = window.innerWidth <= 768;
+  const cityName = cities[currentCityIndex].name.toLowerCase();
 
-  const imagePath = isMobile
+  main_image.src = isMobile
     ? `/img/mobile/gross/${imageNumber}.svg`
     : `/img/desktop/gross/${imageNumber}.svg`;
 
-  // Hauptbild setzen
-  main_image.src = imagePath;
+  dotsMobile.src = `/img/mobile/punkte_${cityName}_mobile.svg`;
+  dotsDesktop.src = `/img/desktop/punkte_${cityName}_desktop.svg`;
 
-  // Pfeil auf Skala setzen
   const clamped = Math.max(1, Math.min(10, uviNow));
-  const percent = (clamped - 1) * (100 / 9);
-  arrow.style.left = `${percent}%`;
+  arrow.style.left = `${(clamped - 1) * (100 / 9)}%`;
 
-  // Jetzt-Block aktualisieren
   nowContainer.innerHTML = `
     <h1>Jetzt</h1>
     <img src="/img/desktop/anzeigen_sonne_desktop/${imageNumber}.svg" alt="UV jetzt">
     <h1>${uviNow}</h1>
   `;
 
-  // Forecast-Block aufräumen & neu einfügen
   forecastContainer.innerHTML = "";
-
   for (let i = 0; i < 3; i++) {
     const forecast = myData.forecast[i];
     const forecastNumber = Math.ceil(forecast.uvi / 2);
@@ -88,9 +91,17 @@ function showData() {
     `;
     forecastContainer.appendChild(card);
   }
+
+  setTimeout(() => {
+    main_image.style.opacity = 1;
+    nowContainer.style.opacity = 1;
+    forecastContainer.style.opacity = 1;
+    arrow.style.opacity = 1;
+    dotsMobile.style.opacity = 1;
+    dotsDesktop.style.opacity = 1;
+  }, 150);
 }
 
-// Daten für eine bestimmte Stadt laden
 async function loadCityData(index) {
   const city = cities[index];
   const url = buildApiUrl(city);
@@ -102,29 +113,25 @@ async function loadCityData(index) {
   }
 }
 
-// Stadtwechsel auslösen
 function changeCity(direction) {
   if (direction === "left") {
     currentCityIndex = (currentCityIndex - 1 + cities.length) % cities.length;
-  } else if (direction === "right") {
+  } else {
     currentCityIndex = (currentCityIndex + 1) % cities.length;
   }
   loadCityData(currentCityIndex);
 }
 
-// Pfeil-Events für beide .city-switch-Container (Mobile + Desktop)
 document.querySelectorAll(".city-switch").forEach(switchEl => {
   const spans = switchEl.querySelectorAll("span");
   if (spans.length === 3) {
-    spans[0].addEventListener("click", () => changeCity("left"));  // «
-    spans[2].addEventListener("click", () => changeCity("right")); // »
+    spans[0].addEventListener("click", () => changeCity("left"));
+    spans[2].addEventListener("click", () => changeCity("right"));
   }
 });
 
-// Reaktion auf Bildschirmgröße (z. B. Mobile ↔ Desktop Wechsel)
 window.addEventListener("resize", () => {
-  showData(); // neu rendern je nach Größe
+  showData();
 });
 
-// Initial laden
 loadCityData(currentCityIndex);
