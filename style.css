@@ -1,5 +1,9 @@
 
 @media (min-width: 769px){
+    .city-switch#desktop-only {
+    display: block;
+}
+
 h1, h2, h3 {
     color: #000;
     font-family: "Patrick Hand";
@@ -40,22 +44,25 @@ html, body {
   
   .left {
     flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     padding: 0;
-    background-color: transparent;
+    margin: 0;
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
   }
   
   .left img#main_image {
-    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
+    height: 100%;
     object-fit: cover;
-    display: block;
+    object-position: center;
     margin: 0;
     padding: 0;
-    border: none;
-  }
+    display: block;
+}
   
   .right {
     flex: 1;
@@ -107,6 +114,7 @@ html, body {
   
   /* 🔽 MOBIL-DARSTELLUNG */
   @media (max-width: 768px) {
+    
     .uv-app {
       flex-direction: column;
     }
