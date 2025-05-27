@@ -51,7 +51,7 @@ function showData() {
     card.classList.add("card-column");
     card.innerHTML = `
       <h2>${formattedTime}</h2>
-      <img src="/img/mobile/anzeigen_sonne_mobile/${forecastNumber}.svg" alt="UV ${formattedTime}">
+      <img src="/img/mobile/anzeigen_sonne_mobile/${forecastNumber}.svg" alt="UV ${formattedTime}"style="height: 50px;">
       <h2>${forecast.uvi}</h2>
     `;
     forecastContainer.appendChild(card);
