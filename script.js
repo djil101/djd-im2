@@ -36,9 +36,9 @@ function showData() {
   arrow.style.left = `${percent}%`;
 
   nowContainer.innerHTML = `
-    <h2>Jetzt</h2>
+    <h1>Jetzt</h1>
     <img src="/img/desktop/anzeigen_sonne_desktop/${imageNumber}.svg" alt="UV jetzt">
-    <h2>${uviNow}</h2>
+    <h1>${uviNow}</h1>
   `;
 
   forecastContainer.innerHTML = "";
