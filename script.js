@@ -31,8 +31,8 @@ function showData() {
   main_image.src = `/img/desktop/gross/${imageNumber}.svg`;
 
   // Pfeilposition auf der Skala anpassen
-  const clamped = Math.max(1, Math.min(10, uviNow));
-  const percent = (clamped - 1) * (100 / 9); // gleichmässige Aufteilung für 1–10
+  const clamped = Math.max(0, Math.min(10, uviNow));
+  const percent = (clamped - 1) * (100 / 9); // gleichmässige Aufteilung für 0–10
   arrow.style.left = `${percent}%`;
 
   nowContainer.innerHTML = `
