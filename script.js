@@ -28,20 +28,23 @@ function showData() {
 
   const uviNow = myData.now.uvi;
   const imageNumber = Math.ceil(uviNow / 2);
-  main_image.src = `/img/desktop/gross/${imageNumber}.svg`;
+  const isMobile = window.innerWidth <= 768;
+  const imagePath = isMobile
+  ? `/img/mobile/gross/${imageNumber}.svg`   // ⬅️ dein mobiler Pfad
+  : `/img/desktop/gross/${imageNumber}.svg`; // ⬅️ dein Desktop-Pfad
+
+main_image.src = imagePath;
 
   // Pfeilposition auf der Skala anpassen
-  const clamped = Math.max(0, Math.min(10, uviNow));
-  const percent = (clamped - 1) * (100 / 9); // gleichmässige Aufteilung für 0–10
+  const clamped = Math.max(1, Math.min(10, uviNow));
+  const percent = (clamped - 1) * (100 / 9); // gleichmässige Aufteilung für 1–10
   arrow.style.left = `${percent}%`;
 
   nowContainer.innerHTML = `
-  <div class="card-column">
     <h1>Jetzt</h1>
-    <img src="/img/desktop/anzeigen_sonne_desktop/${imageNumber}.svg" alt="UV jetzt" class="uv-icon">
+    <img src="/img/desktop/anzeigen_sonne_desktop/${imageNumber}.svg" alt="UV jetzt">
     <h1>${uviNow}</h1>
-  </div>
-`;
+  `;
 
   forecastContainer.innerHTML = "";
   for (let i = 0; i < 3; i++) {

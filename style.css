@@ -135,10 +135,25 @@ html, body {
       }
   
   
-    .left {
-      width: 100%;
-      height: 60vh;
-    }
+      .left {
+        position: relative; /* sehr wichtig für alle absolute Elemente darin */
+      }
+      
+      .city-switch {
+        position: absolute;
+        top: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        color: white; /* weisse Schrift */
+        font-size: 24px;
+        font-family: "Patrick Hand";
+        z-index: 2; /* sicherstellen, dass es über dem Bild liegt */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 16px;
+      }
+      
   
     .left img#main_image {
       width: 100%;
@@ -155,22 +170,19 @@ html, body {
         background-color: white;
       }
       
-      .city-switch {
-        font-size: 24px;
-        font-family: "Patrick Hand";
-        color: black;
-        display: flex;
-        justify-content:center;
-        align-items: center;
-        gap: 16px;
-        margin-top: 10px;
-        margin-bottom: 5px;
+           
+      .dots {
+        content: url("img/mobile/drei_punkte_mobile.svg"); /* dein neues Bild */
+        position: absolute;
+        bottom: 20%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 40px;  /* oder was passt */
+        height: auto;
+        z-index: 2;
       }
       
-      .dots {
-        font-size: 18px;
-        margin-bottom: 10px;
-      }
+
       .card-column {
         display: flex;
         flex-direction: column;
@@ -183,7 +195,6 @@ html, body {
         width: 50px;
         height: auto;
       }
-      
       
       .forecast {
         display: flex;
