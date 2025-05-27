@@ -1,36 +1,4 @@
 
-@media (min-width: 769px){
-    .city-switch#desktop-only {
-    display: block;
-}
-    .city-switch#mobile-only {
-    display: none;
-}
-
-h1, h2, h3 {
-    color: #000;
-    font-family: "Patrick Hand";
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    margin: 15px;
-  }
-
-  .city-switch {
-    font-size: 50px;
-  }
-
-  h1 {
-    font-size: 35px;
-  }
-
-  h2 {
-    font-size: 25px;
-  }
-
-  h3 {
-    font-size: 30px;
-  }
 
 html, body {
     margin: 0;
@@ -39,7 +7,19 @@ html, body {
     font-family: "Patrick Hand", sans-serif;
     background-color: #000;
   }
-
+  
+  h1, h2, h3 {
+    font-family: "Patrick Hand";
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin: 15px;
+  }
+  
+  h1 { font-size: 35px; color: black; }
+  h2 { font-size: 25px; color: black; }
+  h3 { font-size: 30px; color: black; }
+  
   .uv-app {
     display: flex;
     min-height: 100vh;
@@ -47,8 +27,6 @@ html, body {
   
   .left {
     flex: 1;
-    padding: 0;
-    margin: 0;
     position: relative;
     height: 100vh;
     overflow: hidden;
@@ -62,192 +40,202 @@ html, body {
     height: 100%;
     object-fit: cover;
     object-position: center;
-    margin: 0;
-    padding: 0;
     display: block;
-}
+    transition: opacity 0.6s ease;
+  }
   
   .right {
     flex: 1;
     background-color: #fff;
-    padding: 20px 20px;
+    padding: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
   }
   
-  
-
-  
+  /* Inhalte weicher einblenden */
+  #uv-now,
+  #uv-forecast,
+  #uv-arrow,
   .card-column {
+    transition: opacity 0.4s ease;
+  }
+  
+  /* ================================
+     Stadtanzeige (allgemein)
+  ================================= */
+  
+  .city-switch {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    margin: 2px;
-   
+    gap: 16px;
+    font-size: 40px;
+    font-family: "Patrick Hand";
+    z-index: 2;
+    cursor: pointer;
+    user-select: none;
+    transition: opacity 0.3s ease;
   }
   
- 
-  
-  .forecast {
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
-    margin: 2px;
+  /* Standardfarbe: Weiß (für Mobile über Bild) */
+  .city-switch {
+    color: white;
   }
   
-  .scale {
-    position: relative;
+  /* ================================
+     Desktop-Ansicht (ab 769px)
+  ================================= */
+  @media (min-width: 769px) {
+    .uv-app {
+      flex-direction: row;
+    }
+  
+    .city-switch.desktop-only {
+      display: flex;
+      color: black; /* ✅ Farbe korrigiert für Desktop-Hintergrund */
+    }
+  
+    .city-switch.mobile-only {
+      display: none;
+    }
+  
+    .forecast {
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+      margin: 2px;
+    }
+  
+    .scale {
+      position: relative;
+    }
+  
+    .scale img {
+      width: 100%;
+      max-width: 300px;
+    }
+  
+    .arrow {
+      position: absolute;
+      bottom: -20px;
+      font-size: 20px;
+      color: black;
+      transition: left 0.3s ease;
+    }
+  
+    .card-column {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 2px;
+    }
   }
   
-  .scale img {
-    width: 100%;
-    max-width: 300px;
-  }
-  
-  .arrow {
-    position: absolute;
-    bottom: -20px;
-    font-size: 20px;
-    color: black;
-    transition: left 0.3s ease;
-  }
-}
-  
-  /* 🔽 MOBIL-DARSTELLUNG */
+  /* ================================
+     Mobile-Ansicht (bis 768px)
+  ================================= */
   @media (max-width: 768px) {
-    .city-switch#desktop-only {
-        display: none;
-    }
-    .city-switch#mobile-only {
-        display: flex;
-    }
     .uv-app {
       flex-direction: column;
     }
-
-    h1, h2, h3 {
-        font-family: "Patrick Hand";
-        font-style: normal;
-        font-weight: 400;
-        line-height: normal;
-        margin: 5px;
-      }
-    
-      h1 {
-        color: black;
-        font-size: 30px;
-      }
-    
-      h2 {
-        color: #000;
-        font-size: 20px;
-      }
-    
-      h3 {
-        color: #000;
-        font-size: 26px;
-      }
   
+    h1 { font-size: 30px; color: black; margin: 5px; }
+    h2 { font-size: 20px; color: black; margin: 5px; }
+    h3 { font-size: 26px; color: black; margin: 5px; }
   
-      .left {
-        position: relative;
-      }
-      
-      .city-switch {
-        position: absolute;
-        top: 10px;
-        left: 50%;
-        transform: translateX(-50%);
-        color: white; 
-        font-size: 24px;
-        font-family: "Patrick Hand";
-        z-index: 2;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 16px;
-      }
-      
+    .city-switch.desktop-only {
+      display: none;
+    }
+  
+    .city-switch.mobile-only {
+      display: flex;
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: white;
+    }
   
     .left img#main_image {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
+        width: 100%;
+        height: auto;
+        max-height: 80vh; /* Optional: damit nicht zu hoch */
+        object-fit: cover; /* Bild wird ganz angezeigt ohne beschnitten zu werden */
+        display: block;
+        position: relative;
+      }
+
+    .left {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    }
+  
+    .dots {
+      content: url("img/mobile/drei_punkte_mobile.svg");
+      position: absolute;
+      bottom: 20%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 40px;
+      height: auto;
+      z-index: 2;
     }
   
     .right {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        background-color: white;
-      }
-      
-           
-      .dots {
-        content: url("img/mobile/drei_punkte_mobile.svg"); /* dein neues Bild */
-        position: absolute;
-        bottom: 20%;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 40px;  /* oder was passt */
-        height: auto;
-        z-index: 2;
-      }
-      
-
-      .card-column {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin: 8px;
-      }
-      
-      .card-column img,
-      .uv-icon {
-        width: 50px;
-        height: auto;
-      }
-      
-      .forecast {
-        display: flex;
-        gap: 10px;
-        justify-content: center;
-        flex-wrap: wrap;
-        margin-top: 10px;
-      }
-      
-      .scale {
-        margin-top: 15px;
-        position: relative;
-        width: 100%;
-        max-width: 300px;
-      }
-      
-      .scale img {
-        width: 100%;
-        height: auto;
-      }
-      
-      .arrow {
-        position: absolute;
-        bottom: -16px;
-        font-size: 18px;
-        color: black;
-        transition: left 0.3s ease;
-        transform: translateX(-50%);
-      }
-      
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      background-color: white;
+    }
+  
+    .card-column {
+      margin: 8px;
+    }
+  
+    .card-column img,
+    .uv-icon {
+      width: 50px;
+      height: auto;
+    }
+  
+    .forecast {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+  
+    .scale {
+      margin-top: 15px;
+      position: relative;
+      width: 100%;
+      max-width: 300px;
+    }
+  
+    .scale img {
+      width: 100%;
+      height: auto;
+    }
+  
+    .arrow {
+      position: absolute;
+      bottom: -16px;
+      font-size: 18px;
+      color: black;
+      transform: translateX(-50%);
+      transition: left 0.3s ease;
+    }
+  
     .now-forecast {
       flex-direction: row;
       justify-content: center;
       flex-wrap: wrap;
       gap: 10px;
     }
-
-    
   }
   

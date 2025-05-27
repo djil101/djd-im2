@@ -10,33 +10,34 @@
 <body>
   <main class="uv-app">
     <div class="left">
-      <!-- Stadtwahl für Mobile (positioniert über Bild via CSS) -->
+      <!-- Stadtwahl für Mobile -->
       <div class="city-switch mobile-only">
         <span>&lt;</span>
-        <span>Zürich</span>
+        <span>Zürich</span> <!-- Wird von JS überschrieben -->
         <span>&gt;</span>
       </div>
-      
+
       <!-- Hauptbild -->
       <img id="main_image" src="img/desktop/gross/1.svg" alt="UV-Symbol" />
 
-      <!-- Dots-Bild, wird per CSS in Mobile-Version ersetzt und positioniert -->
+      <!-- Punkte (Dots) -->
       <img class="dots" src="img/desktop/drei_punkte_desktop.svg" alt="Navigationspunkte" />
     </div>
 
     <div class="right">
-        <!-- Desktop in .right -->
+      <!-- Stadtwahl für Desktop -->
       <div class="city-switch desktop-only">
         <span>&lt;</span>
-        <span class="city">Zürich</span>
+        <span>Zürich</span> <!-- Wird von JS überschrieben -->
         <span>&gt;</span>
       </div>
-    
+
       <h3>Heutiger UV-Index:</h3>
       <div class="now-forecast">
         <div class="card-column" id="uv-now"></div>
         <div class="forecast" id="uv-forecast"></div>
       </div>
+
       <div class="scale">
         <img src="img/desktop/balken_desktop.svg" alt="UV-Skala" />
         <div class="arrow" id="uv-arrow">▲</div>
@@ -44,6 +45,6 @@
     </div>
   </main>
 
-  <script src="script.js" type="module"></script>
+  <script type="module" src="script.js"></script>
 </body>
 </html>
