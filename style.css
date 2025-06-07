@@ -28,6 +28,8 @@ html, body {
     position: relative;
     height: 100vh;
     overflow: hidden;
+    display: flex;
+    align-items: flex-end; 
   }
   
   .left img#main_image {
