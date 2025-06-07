@@ -4,11 +4,12 @@ const forecastContainer = document.querySelector("#uv-forecast");
 const arrow = document.querySelector("#uv-arrow");
 const dotsMobile = document.querySelector(".dots.mobile-only");
 const dotsDesktop = document.querySelector(".dots.desktop-only");
+const leftContainer = document.querySelector(".left");
 
 const cities = [
   { name: "Zürich", lat: 47.3769, lon: 8.5417 },
-  { name: "Chur", lat: 46.8508, lon: 9.5310 },
-  { name: "Bern", lat: 46.9481, lon: 7.4474 }
+  { name: "Chur", lat: 46.8508, lon: 9.531 },
+  { name: "Bern", lat: 46.9481, lon: 7.4474 },
 ];
 
 let currentCityIndex = 0;
@@ -35,15 +36,32 @@ async function fetchData(url) {
 }
 
 function updateCityName(name) {
-  document.querySelectorAll(".city-switch span:nth-child(2)").forEach(span => {
-    span.classList.add("fade");
-    setTimeout(() => {
-      span.textContent = name;
-      span.classList.remove("fade");
-    }, 200);
-  });
+  document
+    .querySelectorAll(".city-switch span:nth-child(2)")
+    .forEach((span) => {
+      span.classList.add("fade");
+      setTimeout(() => {
+        span.textContent = name;
+        span.classList.remove("fade");
+      }, 200);
+    });
 }
-
+function getBackgroundColorForImage(imageNumber) {
+  switch (imageNumber) {
+    case 1:
+      return "#0246C2";
+    case 2:
+      return "#72B932";
+    case 3:
+      return "#FAAB13";
+    case 4:
+      return "#E05B02";
+    case 5:
+      return "#7A0505";
+    default:
+      return "#000000";
+  }
+}
 function showData() {
   if (!myData || !myData.now) return;
 
@@ -64,6 +82,7 @@ function showData() {
     ? `/img/mobile/gross/${imageNumber}.svg`
     : `/img/desktop/gross/${imageNumber}.svg`;
 
+  leftContainer.style.backgroundColor = getBackgroundColorForImage(imageNumber);
   dotsMobile.src = `/img/mobile/punkte_${cityName}_mobile.svg`;
   dotsDesktop.src = `/img/desktop/punkte_${cityName}_desktop.svg`;
 
@@ -122,7 +141,7 @@ function changeCity(direction) {
   loadCityData(currentCityIndex);
 }
 
-document.querySelectorAll(".city-switch").forEach(switchEl => {
+document.querySelectorAll(".city-switch").forEach((switchEl) => {
   const spans = switchEl.querySelectorAll("span");
   if (spans.length === 3) {
     spans[0].addEventListener("click", () => changeCity("left"));
